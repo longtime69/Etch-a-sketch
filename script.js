@@ -1,9 +1,14 @@
 
-const container = document.querySelector(".container")
+const container = document.querySelector(".container");
+
 
 for (i = 0; i < 256; i++){
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.className = 'fgrid';
-    div.textContent = `a`;
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundColor = 'black';
+    })
     container.appendChild(div);
 }
+
+
