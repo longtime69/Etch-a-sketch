@@ -1,39 +1,35 @@
 
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
+  const stylesheet = document.styleSheets[0];
 
-
-for (i = 0; i < 256; i++){
+function createGrid(size){
+    container.innerHTML = '';
+    for (i = 0; i < size*size; i++){
+    const cellSize = 400 / size;
     const div = document.createElement('div');
     div.className = 'fgrid';
-    container.style.gridTemplateColumns = `repeat(${16}, 25px)`;
+    div.style.width = `${cellSize}px`
+    div.style.height = `${cellSize}px`
     div.addEventListener('mouseover', () => {
         div.style.backgroundColor = 'lightblue';
     })
-    
+   
     container.appendChild(div);
-}
+}}
+
+createGrid(16)
+
 
 
 button.addEventListener('click', () => {
-    let userSelection = prompt('Enter desired grid size');
-    if (userSelection > 100){
-        
+    let userSelection = 101;
+    while (userSelection > 100 || userSelection < 1){
+        userSelection  = prompt('Select a grid size between 1 and 100: ');
     }
-    container.innerHTML = '';
-
-
-    container.style.gridTemplateColumns = `repeat(${userSelection}, 25px)`;
-
-
-    for (i = 0; i < userSelection*userSelection; i++){
-        const div = document.createElement('div');
-        div.className = 'fgrid';
-        div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'lightblue';
-    })
-    container.appendChild(div);
-    }
+   
+    createGrid(userSelection)
+   
 })
 
 

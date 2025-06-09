@@ -7,15 +7,17 @@ button{
 }
 
 .container{
-    display: grid;
-    height: 5px;
-    width: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 400px;
+    width: 400px;
+    justify-content: center;
 }
 
 .fgrid{
-    border: solid 1px;
-    height: 25px;
+    border: solid 1px black;
     width: 25px;
+    height: 25px;
 }
 
 
