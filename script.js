@@ -1,7 +1,14 @@
 
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
-  const stylesheet = document.styleSheets[0];
+const stylesheet = document.styleSheets[0];
+
+function RGB_r(){
+    r = Math.round(Math.random() * 255)
+    b = Math.round(Math.random() * 255)
+    g = Math.round(Math.random() * 255)
+    return 'rgba(' + r + ',' + b + ',' + g  + ',' + 1 + ')';
+}
 
 function createGrid(size){
     container.innerHTML = '';
@@ -12,7 +19,7 @@ function createGrid(size){
     div.style.width = `${cellSize}px`
     div.style.height = `${cellSize}px`
     div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'lightblue';
+        div.style.backgroundColor = RGB_r();
     })
    
     container.appendChild(div);
